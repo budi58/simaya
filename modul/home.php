@@ -11,6 +11,8 @@
 		include ('modul/page/home_kabaghumas.php');
 	}elseif($_SESSION['uac'] == 'SWN'){
 		include ('modul/page/home_sekwan.php');
+	}elseif($_SESSION['uac'] == 'KOMA'){
+		include ('modul/page/home_komisi.php');
 	}elseif($_SESSION['uac'] == 'DWN'){
 		include ('modul/page/home_dewan.php');
 	}else{

@@ -101,6 +101,13 @@
                                 </div>
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
+                                    <label class="col-sm-3 control-label">Lampiran</label>
+                                    <div class="col-sm-6">
+                                    <input type="text" name="lamp" class="form-control" value="<?php echo $row['lamp']; ?>">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
                                     <label class="col-sm-3 control-label">Penerima</label>
                                     <div class="col-sm-6">
                                     <select class="select2_demo_3 form-control" name="id_ag"> 

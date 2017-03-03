@@ -125,10 +125,10 @@
                             <input type="hidden" name="q" value="<?php echo $getId ?>" >
                             <select class="select2_demo_3 form-control" name="dispo" required="">
                                 <option value="<?php echo $row['dispo']; ?>"> <?php echo $dispo; ?></option>
-                                <option value="KMA">Ketua Komisi A</option>
-                                <option value="KMB">Ketua Komisi B</option>
-                                <option value="KMC">Ketua Komisi C</option>
-                                <option value="KMD">Ketua Komisi D</option>
+                                <option value="KOMA">Ketua Komisi A</option>
+                                <option value="KOMB">Ketua Komisi B</option>
+                                <option value="KOMC">Ketua Komisi C</option>
+                                <option value="KOMD">Ketua Komisi D</option>
                                 <option value="SWN">Sekwan</option>
                             </select>
                         </td>

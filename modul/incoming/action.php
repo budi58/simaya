@@ -18,6 +18,7 @@ if (isset($_POST['send'])) {
 
 	$v_perihal	 	= $_POST['perihal'];
 	$v_pengirim	 	= $_POST['pengirim'];
+	$v_lamp			= $_POST['lamp'];
 	$v_agenda	 	= $_POST['id_ag'];
 	$v_sifat	 	= $_POST['id_sifat'];
 	$v_status	 	= $_POST['status'];
@@ -53,10 +54,10 @@ if (isset($_POST['send'])) {
 
 			    if (move_uploaded_file($file_tmp,$upload_dir.$v_file)){
 
-					$sqlSm = "INSERT INTO tb_suratmasuk (id_sm, tglaccept, nosurat, tglsurat, perihal, pengirim, file, id_ag, id_sifat, uac, status)
+					$sqlSm = "INSERT INTO tb_suratmasuk (id_sm, tglaccept, nosurat, tglsurat, perihal, pengirim, file, lamp, id_ag, id_sifat, uac, status)
 							VALUES (NULL, '".$v_tglaccept."', '".$v_nosurat."', '".$v_tglsurat."', 
 										'".$v_perihal."', '".$v_pengirim."', '".$v_file."', 
-										'".$v_agenda."', '".$v_sifat."', 'KSBG', '0') ";
+										'".$v_lamp."', '".$v_agenda."', '".$v_sifat."', 'KSBG', '0') ";
 
 					if ($conn->query($sqlSm) === TRUE) {
 
@@ -135,6 +136,7 @@ if (isset($_POST['update'])){
 
 	$v_perihal	 	= $_POST['perihal'];
 	$v_pengirim	 	= $_POST['pengirim'];
+	$v_lamp			= $_POST['lamp'];
 	$v_agenda	 	= $_POST['id_ag'];
 	$v_sifat	 	= $_POST['id_sifat'];
 	$v_status	 	= $_POST['status'];
@@ -158,6 +160,7 @@ if (isset($_POST['update'])){
 						tglsurat  = '".$v_tglsurat."',
 						perihal   = '".$v_perihal."',
 						pengirim  =	'".$v_pengirim."',
+						lamp 	  = '".$v_lamp."',
 						id_ag     =	'".$v_agenda."',
 						id_sifat  = '".$v_sifat."',
 						uac 	  = 'KSBG',
@@ -169,7 +172,7 @@ if (isset($_POST['update'])){
 			echo '<div class="wrapper wrapper-content animated fadeIn">
 					<div class="row">
 	            		<div class="alert alert-success"> Surat masuk berhasil diubah. Proses pemeriksaan telah dimulai untuk dilaksanakan. 
-	                        <a class="alert-link" href="?p=incoming.new">Kembali</a>..
+	                        <a class="alert-link" href="?p=incoming.read">Kembali</a>..
 	                    </div>';
 				    	
 		}else{
@@ -218,6 +221,7 @@ if (isset($_POST['update'])){
 									perihal   = '".$v_perihal."',
 									pengirim  =	'".$v_pengirim."',
 									file 	  =	'".$v_file."',
+									lamp 	  = '".$v_lamp."',
 									id_ag 	  =	'".$v_agenda."',
 									id_sifat  = '".$v_sifat."',
 									uac 	  = 'KSBG',
@@ -229,7 +233,7 @@ if (isset($_POST['update'])){
 						echo '<div class="wrapper wrapper-content animated fadeIn">
 								<div class="row">
 	            					<div class="alert alert-success"> Surat masuk berhasil diubah. Proses pemeriksaan telah dimulai untuk dilaksanakan. 
-	                            		<a class="alert-link" href="?p=incoming.new">Kembali..</a>.
+	                            		<a class="alert-link" href="?p=incoming.raed">Kembali..</a>.
 	                            	</div>';
 				    	
 				    }else{

@@ -1,9 +1,5 @@
 <?php
-    if($_SESSION['uac'] == 'ADM') {
-        include ('modul/disposition/view_admin.php');
-    }elseif($_SESSION['uac'] == 'KSBG'){
-        include ('modul/disposition/review_kasubag.php');
-    }elseif($_SESSION['uac'] == 'KBG'){
+    if($_SESSION['uac'] == 'KBG'){
         include ('modul/disposition/review_kabag.php');
     }elseif($_SESSION['uac'] == 'KBGR'){
         include ('modul/disposition/review_kabagrapat.php');
@@ -11,8 +7,14 @@
         include ('modul/disposition/review_kabaghumas.php');
     }elseif($_SESSION['uac'] == 'SWN'){
         include ('modul/disposition/review_sekwan.php');
-    }elseif($_SESSION['uac'] == 'DWN'){
-        include ('modul/disposition/review_ketua.php');
+    }elseif($_SESSION['uac'] == 'KOMA'){
+        include ('modul/disposition/review_komisi_a.php');
+    }elseif($_SESSION['uac'] == 'KOMB'){
+        include ('modul/disposition/review_komisi_b.php');
+    }elseif($_SESSION['uac'] == 'KOMC'){
+        include ('modul/disposition/review_komisi_c.php');
+    }elseif($_SESSION['uac'] == 'KOMD'){
+        include ('modul/disposition/review_komisi_d.php');
     }else{
         echo "Koe Sopo?";
     }
