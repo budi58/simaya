@@ -95,6 +95,13 @@
                                 </div>
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label">Lampiran</label>
+                                    <div class="col-sm-6">
+                                    <input type="text" name="lamp" class="form-control" required="">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
                                     <label class="col-sm-2 control-label">Tujuan</label>
                                     <div class="col-sm-6"><input type="text" name="pengirim" class="form-control" required="">
                                     </div>
@@ -138,7 +145,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Isi Surat</label>
                                     <div class="col-sm-10">
-                                    <div class="ibox-content no-padding"><div class="summernote" name="isisurat">Buat surat disini</div>
+                                    <div class="ibox-content no-padding"><textarea class="summernote" name="isisurat">Buat surat disini</textarea>
                                     </div>
                                     </div>
                                 </div>

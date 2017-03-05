@@ -13,6 +13,7 @@ if (isset($_POST['send'])) {
     $tgl         	= explode('/',$_POST['tglsurat']);
 	$v_tglsurat  	= $tgl['2'].'-'.$tgl['1'].'-'.$tgl['0'];
 
+	$v_lamp			= $_POST['lamp'];
 	$v_pengirim	 	= $_POST['pengirim'];
 	$v_perihal	 	= $_POST['perihal'];
 	$v_user 	 	= $_POST['id_us'];
@@ -54,10 +55,10 @@ if (isset($_POST['send'])) {
 
 			    if (move_uploaded_file($file_tmp,$upload_dir.$v_file)){
 
-					$sqlSk = "INSERT INTO tb_suratkeluar (id_sk, tglsurat, file, pengirim, perihal, id_us, id_sifat, id_jenis, isisurat, uac, status)
-							VALUES (NULL, '".$v_tglsurat."', '".$v_file."', '".$v_pengirim."', 
-										  '".$v_perihal."', '".$v_user."', '".$v_sifat."', 
-										  '".$v_jenis."', '".$v_isisurat."', 'SWN', '0') ";
+					$sqlSk = "INSERT INTO tb_suratkeluar (id_sk, tglsurat, file, lamp, pengirim, perihal, id_us, id_sifat, id_jenis, isisurat, uac, status)
+							VALUES (NULL, '".$v_tglsurat."', '".$v_file."', '".$v_lamp."', 
+										'".$v_pengirim."', '".$v_perihal."', '".$v_user."', 
+										'".$v_sifat."', '".$v_jenis."', '".$v_isisurat."', 'SWN', '0') ";
 
 					if ($conn->query($sqlSk) === TRUE) {
 
@@ -114,6 +115,7 @@ if (isset($_POST['update'])){
     $tgl         	= explode('/',$_POST['tglsurat']);
 	$v_tglsurat  	= $tgl['2'].'-'.$tgl['1'].'-'.$tgl['0'];
 
+	$v_lamp			= $_POST['lamp'];
 	$v_pengirim	 	= $_POST['pengirim'];
 	$v_perihal	 	= $_POST['perihal'];
 	$v_user 	 	= $_POST['id_us'];
@@ -138,6 +140,7 @@ if (isset($_POST['update'])){
 
 	$sqlSk = "UPDATE tb_suratkeluar 
 					SET tglsurat  = '".$v_tglsurat."',
+						lamp 	  = '".$v_lamp."',
 						pengirim  =	'".$v_pengirim."',
 						perihal   = '".$v_perihal."',
 						id_us     =	'".$v_user."',
@@ -153,7 +156,7 @@ if (isset($_POST['update'])){
 			echo '<div class="wrapper wrapper-content animated fadeIn">
 					<div class="row">
 	            		<div class="alert alert-success"> Surat masuk berhasil diubah. Proses pemeriksaan telah dimulai untuk dilaksanakan. 
-	                        <a class="alert-link" href="?p=outgoing.new">Kembali</a>..
+	                        <a class="alert-link" href="?p=outgoing.read">Kembali</a>..
 	                    </div>
 	                </div>
 	            </div>';	    	
@@ -201,6 +204,7 @@ if (isset($_POST['update'])){
 					$sqlSk = "UPDATE tb_suratkeluar 
 									SET tglsurat  = '".$v_tglsurat."',
 										file 	  = '".$v_file."',
+										lamp 	  = '".$v_lamp."',
 										pengirim  =	'".$v_pengirim."',
 										perihal   = '".$v_perihal."',
 										id_us     =	'".$v_user."',
@@ -216,7 +220,7 @@ if (isset($_POST['update'])){
 						echo '<div class="wrapper wrapper-content animated fadeIn">
 								<div class="row">
 				            		<div class="alert alert-success"> Surat masuk berhasil diubah. Proses pemeriksaan telah dimulai untuk dilaksanakan. 
-				                        <a class="alert-link" href="?p=outgoing.new">Kembali</a>..
+				                        <a class="alert-link" href="?p=outgoing.read">Kembali</a>..
 				                    </div>
 				                </div>
 				            </div>';	    	
@@ -267,7 +271,7 @@ if (isset($_POST['confirm'])){
 			echo '<div class="wrapper wrapper-content animated fadeIn">
             					<div class="row">
             					<div class="alert alert-success"> Surat keluar berhasil ditindaklanjuti. 
-                            		<a class="alert-link" href="?p=home">Kembali</a>.
+                            		<a class="alert-link" href="?p=outgoing.read">Kembali</a>.
                             	</div>
                             </div>';
 		}else{
@@ -281,9 +285,11 @@ if (isset($_POST['acc'])){
 
 	$getId	 	= $conn->real_escape_string($_POST['q']);
 	$v_nosurat	= $conn->real_escape_string($_POST['nosk']);
+	$v_isisurat = $conn->real_escape_string($_POST['isisurat']);
 	$v_status 	= $conn->real_escape_string($_POST['status']);
 
-	$sql = "UPDATE tb_suratkeluar SET nosk ='".$v_nosurat."',
+	$sql = "UPDATE tb_suratkeluar SET nosk = '".$v_nosurat."',
+								  isisurat = '".$v_isisurat."',
 									status = '1'
 							   WHERE id_sk = '".$getId."' ";	
 
@@ -292,7 +298,7 @@ if (isset($_POST['acc'])){
 			echo '<div class="wrapper wrapper-content animated fadeIn">
             					<div class="row">
             					<div class="alert alert-success"> Surat keluar berhasil ditindaklanjuti. 
-                            		<a class="alert-link" href="?p=home">Kembali</a>.
+                            		<a class="alert-link" href="?p=outgoing.read">Kembali</a>.
                             	</div>
                             </div>';
 		}else{

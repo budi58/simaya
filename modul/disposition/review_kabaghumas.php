@@ -154,7 +154,7 @@
                     </tbody>
                     </table>
                         <button class="btn btn-primary" type="submit" name="tindakan">Kirim disposisi</button>
-                        <a class="btn btn-primary" title="Lihat Dipsosisi" href="print.php?s=disposition.sekwan&q=<?php echo $row['id_sm']; ?>" target='_blank'>Disposisi</a>
+                        <a class="btn btn-primary" title="Lihat Dipsosisi" href="print.php?s=disposition.sekwan&q=<?php echo $row['id_sm']; ?>" target='_blank'>Cetak Disposisi</a>
                     </form> 
                     </div>
                 </div>

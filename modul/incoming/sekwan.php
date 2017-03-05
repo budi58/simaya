@@ -33,7 +33,7 @@
                     </div>
                     <div class="ibox-content">
                     <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover " id="dataTables-example" >
+                    <table class="table table-striped table-bordered table-hover " id="dataTables-example">
                     <thead>
                     <tr>
                         <th>#</th>
@@ -46,10 +46,12 @@
                     </thead>
                     <tbody>
                     <?php
-                        $sql = "SELECT `tb_suratmasuk`.`id_sm`, `tb_suratmasuk`.`tglaccept`, `tb_suratmasuk`.`nosurat`, `tb_suratmasuk`.`pengirim`, `tb_agenda`.`agenda`, `tb_suratmasuk`.`perihal`, `tb_suratmasuk`.`uac`, `tb_suratmasuk`.`status` 
+                        $sql = "SELECT `tb_suratmasuk`.`id_sm`, `tb_suratmasuk`.`tglaccept`, `tb_suratmasuk`.`nosurat`, `tb_suratmasuk`.`pengirim`, `tb_agenda`.`agenda`, `tb_suratmasuk`.`perihal`, `tb_suratmasuk`.`uac`, `tb_suratmasuk`.`status`, `tb_dispo`.`ket`
                                 FROM `tb_suratmasuk` 
-                                INNER JOIN `tb_agenda` ON (`tb_suratmasuk`.`id_ag` = `tb_agenda`.`id_ag`)
-                                WHERE `tb_suratmasuk`.`id_ag` = '2' AND `tb_suratmasuk`.`status` = '1' ORDER BY `tb_suratmasuk`.`id_sm` DESC";
+                            INNER JOIN `tb_agenda` ON (`tb_suratmasuk`.`id_ag` = `tb_agenda`.`id_ag`)
+                            INNER JOIN `tb_dispo` ON (`tb_suratmasuk`.`id_sm` = `tb_dispo`.`id_dispo`)
+                            WHERE `tb_suratmasuk`.`id_ag` = '2' AND `tb_suratmasuk`.`status` = '1' 
+                                AND `tb_dispo`.`ket` = '1' ORDER BY `tb_suratmasuk`.`id_sm` DESC";
 
                         $res = $conn->query($sql);
                         $no = 0;

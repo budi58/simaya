@@ -12,7 +12,7 @@
  */
 
 	session_start();
-    require_once ('fungsi.php');
+    require ('fungsi.php');
 
     if(empty($_SESSION['uac'])) {
         header('location:login.php') ;

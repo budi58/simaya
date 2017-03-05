@@ -36,6 +36,7 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>Surat Dari</th>
                         <th>Tanggal Surat</th>
                         <th>Nomer Surat</th>
@@ -64,6 +65,7 @@
                         $no++;
                     ?>     
                     <tr class="odd gradeX">
+                        <td><?php echo $no; ?></td>
                         <td><?php echo $row['pengirim']; ?></td>
                         <td><?php echo DateIndo($row['tglsurat']);?></td>
                         <td><?php echo $row['nosurat'];?></td>

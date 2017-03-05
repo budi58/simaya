@@ -81,6 +81,13 @@
                                 </div>
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label">Lampiran</label>
+                                    <div class="col-sm-6">
+                                    <input type="text" name="lamp" class="form-control" value="<?php echo $row['lamp']; ?>">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
                                     <label class="col-sm-2 control-label">Tujuan</label>
                                     <div class="col-sm-6"><input type="text" name="pengirim" class="form-control" value="<?php echo $row['pengirim']; ?>">
                                     </div>
@@ -144,8 +151,8 @@
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Isi Surat</label>
-                                    <div class="col-sm-10"><div class="summernote" name="">
-                                    </div>
+                                    <div class="col-sm-10"><textarea class="summernote" name="isisurat">
+                                    <?php echo $row['isisurat']; ?> </textarea>
                                     </div>
                                 </div>
                                 <div class="hr-line-dashed"></div>
@@ -153,6 +160,7 @@
                                     <div class="col-sm-4 col-sm-offset-2">
                                         <a class="btn btn-white" href="?p=outgoing.read">Cancel</a>
                                         <button class="btn btn-primary" type="submit" name="acc">Save</button>
+                                        <a class="btn btn-success" title="Print Surat" href="print.php?s=letter.outgoing&q=<?php echo $row['id_sk']; ?>" target='_blank'>Print Surat</a>
                                     </div>
                                 </div>
                             </form>
