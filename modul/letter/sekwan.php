@@ -50,7 +50,7 @@
                     <tbody>
                     <?php
                         $getId  = $_GET['q']; 
-                        $sql    = "SELECT tb_suratmasuk.id_sm, tb_suratmasuk.tglaccept, tb_suratmasuk.nosurat, tb_suratmasuk.tglsurat, tb_suratmasuk.perihal, tb_suratmasuk.pengirim, tb_suratmasuk.file, tb_agenda.jabatan, tb_sifat.sifat, tb_dispo.dispo, tb_dispo.isidispo, tb_dispo.isi_tindakan, tb_suratmasuk.status, tb_bagian.bagian, tb_user.bgn
+                        $sql    = "SELECT tb_suratmasuk.id_sm, tb_suratmasuk.tglaccept, tb_suratmasuk.nosurat, tb_suratmasuk.tglsurat, tb_suratmasuk.perihal, tb_suratmasuk.pengirim, tb_suratmasuk.file, tb_suratmasuk.lamp, tb_agenda.jabatan, tb_sifat.sifat, tb_dispo.dispo, tb_dispo.isidispo, tb_dispo.isi_tindakan, tb_suratmasuk.status, tb_bagian.bagian, tb_user.bgn, tb_dispo.ket
                             FROM `tb_suratmasuk` 
                             INNER JOIN `tb_sifat` ON (`tb_suratmasuk`.`id_sifat` = `tb_sifat`.`id_sifat`)
                             INNER JOIN `tb_agenda` ON (`tb_suratmasuk`.`id_ag` = `tb_agenda`.`id_ag`)
@@ -67,6 +67,13 @@
                             $status = '<span class="label label-warning">Belum dibaca</span>';
                         }else{
                             $status = '<span class="label label-primary">Sudah dibaca</span>';
+                        }
+
+                        $ket = $row['ket'];
+                        if ($ket == "0"){
+                            $ket = '<span class="label label-warning">Belum ditindaklanjuti</span>';
+                        }else{
+                            $ket = '<span class="label label-primary">Sudah ditindaklanjuti</span>';
                         }
                     ?>
                     <tr>
@@ -89,8 +96,8 @@
                     </thead>
                     <tbody>     
                     <tr>
-                        <td style="width: 40%;">1. <a href="files/incoming/<?php echo $row['file']; ?>" target="_blank" ><?php echo $row['file']; ?></a></td>
-                        <td><?php echo $status." ".$row['jabatan'] ?></td>      
+                        <td style="width: 40%;"><?php echo $row['lamp']; ?> <a href="files/incoming/<?php echo $row['file']; ?>" target="_blank" ><?php echo $row['file']; ?></a></td>
+                        <td><?php echo $row['jabatan']." ".$status; ?></td>      
                     </tr>
                     </tbody>
                     </table>
@@ -104,7 +111,7 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td style="width: 40%;"><?php echo $row['bgn']; ?></td>
+                        <td style="width: 40%;"><?php echo $row['bgn']." ".$ket; ?></td>
                         <td><?php echo $row['isidispo']; ?></td>
                     </tr>
                     </tbody>

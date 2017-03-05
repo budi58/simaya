@@ -50,7 +50,7 @@
                     <tbody>
                     <?php
                         $getId  = $_GET['q'];
-                        $sql    = "SELECT tb_suratmasuk.tglaccept, tb_suratmasuk.nosurat, tb_suratmasuk.tglsurat, tb_suratmasuk.perihal, tb_suratmasuk.pengirim, tb_suratmasuk.file, tb_agenda.agenda, tb_sifat.sifat, tb_dispo.dispo, tb_dispo.isidispo, tb_suratmasuk.status
+                        $sql    = "SELECT tb_suratmasuk.tglaccept, tb_suratmasuk.nosurat, tb_suratmasuk.tglsurat, tb_suratmasuk.perihal, tb_suratmasuk.pengirim, tb_suratmasuk.file, tb_suratmasuk.lamp, tb_agenda.agenda, tb_sifat.sifat, tb_dispo.dispo, tb_dispo.isidispo, tb_suratmasuk.status
                             FROM `tb_suratmasuk` 
                             INNER JOIN `tb_sifat` ON (`tb_suratmasuk`.`id_sifat` = `tb_sifat`.`id_sifat`)
                             INNER JOIN `tb_agenda` ON (`tb_suratmasuk`.`id_ag` = `tb_agenda`.`id_ag`)
@@ -63,13 +63,13 @@
 
                         $dispo = $row['dispo'];
                         
-                        if ($dispo == "KMA"){
+                        if ($dispo == "KOMA"){
                             $dispo = 'Ketua Komisi A';
-                        }elseif($dispo == "KMB"){
+                        }elseif($dispo == "KOMB"){
                             $dispo = 'Ketua Komisi B';
-                        }elseif($dispo == 'KMC'){
+                        }elseif($dispo == 'KOMC'){
                             $dispo = 'Ketua Komisi C';
-                        }elseif($dispo == 'KMD'){
+                        }elseif($dispo == 'KOMD'){
                             $dispo = 'Ketua Komisi D';
                         }elseif ($dispo == 'SWN'){
                             $dispo = 'Sekwan';
@@ -104,7 +104,7 @@
                     </thead>
                     <tbody>     
                     
-                        <td style="width: 40%;">1. <a href="files/incoming/<?php echo $row['file']; ?>" target="_blank" ><?php echo $row['file']; ?></a></td>
+                        <td style="width: 40%;"><?php echo $row['lamp']; ?> <a href="files/incoming/<?php echo $row['file']; ?>" target="_blank" ><?php echo $row['file']; ?></a></td>
                         <td><?php echo $status." ".$row['agenda']; ?></td>
                     
                     </tbody>

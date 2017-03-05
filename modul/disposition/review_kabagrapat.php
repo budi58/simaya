@@ -50,15 +50,14 @@
                     <?php
                         $getId  = $_GET['q'];
 
-                        $sql    = "SELECT tb_suratmasuk.id_sm, tb_suratmasuk.tglaccept, tb_suratmasuk.nosurat, tb_suratmasuk.tglsurat, tb_suratmasuk.perihal, tb_suratmasuk.pengirim, tb_suratmasuk.file, tb_agenda.jabatan, tb_user.nama, tb_sifat.sifat, tb_dispo.dispo, tb_dispo.isidispo, tb_dispo.tembusan, tb_dispo.isi_tindakan, tb_bagian.bagian, tb_dispo.ket
+                        $sql    = "SELECT tb_suratmasuk.id_sm, tb_suratmasuk.tglaccept, tb_suratmasuk.nosurat, tb_suratmasuk.tglsurat, tb_suratmasuk.perihal, tb_suratmasuk.pengirim, tb_suratmasuk.file, tb_suratmasuk.lamp, tb_agenda.jabatan, tb_user.nama, tb_sifat.sifat, tb_dispo.dispo, tb_dispo.isidispo, tb_dispo.tembusan, tb_dispo.isi_tindakan, tb_bagian.bagian, tb_dispo.ket
                             FROM `tb_suratmasuk` 
                             INNER JOIN `tb_sifat` ON (`tb_suratmasuk`.`id_sifat` = `tb_sifat`.`id_sifat`)
                             INNER JOIN `tb_agenda` ON (`tb_suratmasuk`.`id_ag` = `tb_agenda`.`id_ag`)
                             INNER JOIN `tb_dispo` ON (`tb_suratmasuk`.`id_sm` = `tb_dispo`.`id_dispo`)
                             INNER JOIN `tb_bagian` ON (`tb_dispo`.`dispo` = `tb_bagian`.`uac`)
                             INNER JOIN `tb_user` ON (`tb_suratmasuk`.`uac` = `tb_user`.`uac`)
-                                WHERE `tb_suratmasuk`.`id_sm` = '{$getId}'";
-
+                            WHERE `tb_suratmasuk`.`id_sm` = '{$getId}'";
                         $res = $conn->query($sql);
                         
                         foreach ($res as $row) {
@@ -105,7 +104,7 @@
                     </thead>
                     <tbody>     
                     <tr>
-                        <td>1. <a href="files/incoming/<?php echo $row['file']; ?>" target="_blank" ><?php echo $row['file']; ?></a></td>
+                        <td style="width: 40%;"><?php echo $row['lamp']; ?> <a href="files/incoming/<?php echo $row['file']; ?>" target="_blank" > <?php echo $row['file']; ?></a></td>
                         <td><?php echo $row['nama']." - ".$row['jabatan']; ?></td>
                     </tr>
                     </tbody>   

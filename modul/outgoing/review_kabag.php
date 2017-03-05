@@ -149,7 +149,8 @@
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Isi Surat</label>
-                                    <div class="col-sm-10"><textarea class="summernote" name="isisurat"><?php echo $row['isisurat']; ?> </textarea>
+                                    <div class="col-sm-10">
+                                    <div class="ibox-content no-padding"><textarea class="summernote" name="isisurat"><?php echo $row['isisurat']; ?> </textarea>
                                     </div>
                                     </div>
                                 </div>
