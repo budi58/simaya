@@ -49,7 +49,7 @@
                     <tbody>
                     <?php
                         $getId  = $_GET['q']; 
-                        $sql    = "SELECT tb_suratmasuk.id_sm, tb_suratmasuk.tglaccept, tb_suratmasuk.nosurat, tb_suratmasuk.tglsurat, tb_suratmasuk.perihal, tb_suratmasuk.pengirim, tb_suratmasuk.file, tb_suratmasuk.lamp, tb_agenda.jabatan, tb_user.nama, tb_sifat.sifat, tb_dispo.dispo, tb_dispo.isidispo, tb_dispo.tembusan, tb_dispo.isi_tindakan, tb_bagian.bagian, tb_dispo.ket
+                        $sql    = "SELECT tb_suratmasuk.id_sm, tb_suratmasuk.tglaccept, tb_suratmasuk.nosurat, tb_suratmasuk.tglsurat, tb_suratmasuk.perihal, tb_suratmasuk.pengirim, tb_suratmasuk.file, tb_suratmasuk.lamp, tb_agenda.jabatan, tb_user.nama, tb_sifat.sifat, tb_dispo.dispo, tb_dispo.isidispo, tb_dispo.isi_tindakan, tb_bagian.bagian, tb_dispo.ket
                             FROM `tb_suratmasuk` 
                             INNER JOIN `tb_sifat` ON (`tb_suratmasuk`.`id_sifat` = `tb_sifat`.`id_sifat`)
                             INNER JOIN `tb_agenda` ON (`tb_suratmasuk`.`id_ag` = `tb_agenda`.`id_ag`)
@@ -61,18 +61,6 @@
                         $res = $conn->query($sql);
 
                         foreach ($res as $row) {
-
-                        $tembusan = $row['tembusan'];
-
-                        if ($tembusan == "KBG"){
-                            $tembusan = 'Kabag. Umum';
-                        }elseif($tembusan == "KBGR"){
-                            $tembusan = 'Kabag. Rapat & UU';
-                        }elseif($tembusan == 'KPH'){
-                            $tembusan = 'Kabag. Humas';
-                        }else{
-                            echo '';
-                        }
                     
                         $ket = $row['ket'];
 
@@ -128,28 +116,19 @@
                     <table class="table table-bordered">
                     <thead>
                     <tr>
-                        <th>Dispo tindakan</th>
-                        <th>Isi tindakan</th>
+                        <th>Pesan tindakan</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td style="width: 40%;">
-                        <input type="hidden" name="q" value="<?php echo $getId ?>" >
-                            <select class="select2_demo_3 form-control" name="tembusan" value="<?php echo $row['tembusan']; ?>" required="">
-                                <option value="<?php echo $row['tembusan']; ?>"> <?php echo $tembusan; ?></option>
-                                <option value="KBG">Kabag. Umum</option>
-                                <option value="KBGR">Kabag. Rapat & UU</option>
-                                <option value="KPH">Kabag Humas</option>
-                            </select>
-                        </td>
                         <td>
-                            <textarea type="text" name="isi_tindakan" class="form-control" required="" placeholder="Isi komentar disini"><?php echo $row['isi_tindakan']; ?></textarea>
+                        <input type="hidden" name="q" value="<?php echo $getId ?>"/>
+                            <textarea type="text" name="isi_tindakan" class="form-control" required="" placeholder="Tulis pesan disini.."><?php echo $row['isi_tindakan']; ?></textarea>
                         </td>
                     </tr>
                     </tbody>
                     </table>
-                        <button class="btn btn-primary" type="submit" name="tindakan">Kirim disposisi</button>
+                        <button class="btn btn-primary" type="submit" name="proses">Tindaklanjuti</button>
                         <a class="btn btn-primary" title="Lihat Dipsosisi" href="print.php?s=disposition.ketua&q=<?php echo $row['id_sm']; ?>" target='_blank'>Cetak Disposisi</a>
                     </form>
                 </div>

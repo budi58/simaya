@@ -280,7 +280,7 @@ if (isset($_POST['confirm'])){
 			//echo "<meta http-equiv='refresh' content='0; url=?p=division.view'>";
 			echo '<div class="wrapper wrapper-content animated fadeIn">
             					<div class="row">
-            					<div class="alert alert-success"> Surat Masuk Berhasil Disunting. 
+            					<div class="alert alert-success"> Surat Masuk Berhasil Dikonfirmasi. 
                             		<a class="alert-link" href="?p=home">Kembali</a>.
                             	</div>
                             </div>';

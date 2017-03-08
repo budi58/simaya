@@ -12,7 +12,13 @@
 	}elseif($_SESSION['uac'] == 'SWN'){
 		include ('modul/page/home_sekwan.php');
 	}elseif($_SESSION['uac'] == 'KOMA'){
-		include ('modul/page/home_komisi.php');
+		include ('modul/page/home_komisi_a.php');
+	}elseif($_SESSION['uac'] == 'KOMB'){
+		include ('modul/page/home_komisi_b.php');
+	}elseif($_SESSION['uac'] == 'KOMC'){
+		include ('modul/page/home_komisi_c.php');
+	}elseif($_SESSION['uac'] == 'KOMD'){
+		include ('modul/page/home_komisi_d.php');
 	}elseif($_SESSION['uac'] == 'DWN'){
 		include ('modul/page/home_dewan.php');
 	}else{

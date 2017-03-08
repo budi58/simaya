@@ -84,7 +84,7 @@ CREATE TABLE `tb_dispo` (
   PRIMARY KEY (`id_dispo`),
   KEY `id_sm` (`id_sm`),
   CONSTRAINT `tb_dispo_ibfk_1` FOREIGN KEY (`id_sm`) REFERENCES `tb_suratmasuk` (`id_sm`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,7 +93,7 @@ CREATE TABLE `tb_dispo` (
 
 LOCK TABLES `tb_dispo` WRITE;
 /*!40000 ALTER TABLE `tb_dispo` DISABLE KEYS */;
-INSERT INTO `tb_dispo` VALUES (1,1,'SWN','hadiri sesusai permintaan','KBG','TL dispo pak ketua',1),(2,2,'SWN','koordinasikan dengan pihak terkait','KBG','TL dispo pak ketua',1),(3,3,'KBG','TL koordinasikan ','KSBG','TL dispo pak sekwan',1),(4,4,'KBG','nanaksdnjka','KBG','TL dispo pak sekwan',1),(5,5,'KBGR','Tindaklanjuti dan laksanakan','KSPU','Tl dispo pak sekwan',1),(6,6,'KPH','laksanakan dengan bagian terkait','KPH','TL dispo pak sekwan',1),(7,7,'KBG','Tindaklanjuti dan koordinasikan','KBG','TL dispo pak sekwan',1),(8,8,'KPH','tolong dikoordinasikan dengan pihak terkait','','',0),(9,9,'KOMA','Mohon dikoordinasikan dengan pihak terkait','','',0),(10,10,'KOMB','ditindaklanjuti dan rapat dengan anggota yang lain','','',0);
+INSERT INTO `tb_dispo` VALUES (1,1,'SWN','hadiri sesusai permintaan','','TL dispo pak ketua BOS',1),(2,2,'SWN','koordinasikan dengan pihak terkait','','TL dispo pak ketua OK',1),(3,3,'KBG','TL koordinasikan ','KSBG','TL dispo pak sekwan',1),(4,4,'KBG','nanaksdnjka','KBG','TL dispo pak sekwan',1),(5,5,'KBGR','Tindaklanjuti dan laksanakan','KSPU','Tl dispo pak sekwan',1),(6,6,'KPH','laksanakan dengan bagian terkait','KPH','TL dispo pak sekwan',1),(7,7,'KBG','Tindaklanjuti dan koordinasikan','KBG','TL dispo pak sekwan',1),(8,8,'KPH','tolong dikoordinasikan dengan pihak terkait','KPER','TL dispo pak sekwan',1),(9,9,'KOMA','Mohon dikoordinasikan dengan pihak terkait','','surat diterima dan segera dilaksanakan',1),(10,10,'KOMB','ditindaklanjuti dan rapat dengan anggota yang lain','','waktu pelaksanaan hari senin jam 11 siang',1),(11,11,'KOMC','tolong pak ketua komisi c untuk hadiri undangan','','surat diterima dan akan ditindaklanjuti',1),(12,12,'KOMD','agendakan sesuai keperluan lapangan','','surat sudah diterima dan akan ditindaklanjuti',1);
 /*!40000 ALTER TABLE `tb_dispo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,7 +165,7 @@ CREATE TABLE `tb_pengirim` (
   `id_pengirim` int(5) NOT NULL AUTO_INCREMENT COMMENT 'ID Pengirim',
   `pengirim` varchar(50) NOT NULL COMMENT 'Nama Pengirim/Instansi',
   PRIMARY KEY (`id_pengirim`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +174,7 @@ CREATE TABLE `tb_pengirim` (
 
 LOCK TABLES `tb_pengirim` WRITE;
 /*!40000 ALTER TABLE `tb_pengirim` DISABLE KEYS */;
-INSERT INTO `tb_pengirim` VALUES (1,'Setda Pati'),(2,'Bupati Pati'),(3,'Setda Prov. Jateng'),(4,'Kantor Departemen Agama Cab Pati'),(5,'Partai Demokrat'),(6,'Bappeda'),(7,'Kilas Fakta'),(8,'Kodam Pati'),(9,'Polres Pati'),(10,'Sekda Pati'),(11,'Kemenag Pati'),(12,'PPP'),(13,'RSUD Soewondo Pati'),(14,'Warga keboromo Tayu'),(15,'PDIP'),(16,'PMI'),(17,'Pabrik Gula Trangkil'),(18,'Pabrik Garuda Pati'),(19,'PMII'),(20,'Partai PDIP'),(21,'Ponpes Mathaliul Falah'),(22,'Warga Gabus'),(23,'Sekda'),(24,'KNPI DPD PATI');
+INSERT INTO `tb_pengirim` VALUES (1,'Setda Pati'),(2,'Bupati Pati'),(3,'Setda Prov. Jateng'),(4,'Kantor Departemen Agama Cab Pati'),(5,'Partai Demokrat'),(6,'Bappeda'),(7,'Kilas Fakta'),(8,'Kodam Pati'),(9,'Polres Pati'),(10,'Sekda Pati'),(11,'Kemenag Pati'),(12,'PPP'),(13,'RSUD Soewondo Pati'),(14,'Warga keboromo Tayu'),(15,'PDIP'),(16,'PMI'),(17,'Pabrik Gula Trangkil'),(18,'Pabrik Garuda Pati'),(19,'PMII'),(20,'Partai PDIP'),(21,'Ponpes Mathaliul Falah'),(22,'Warga Gabus'),(23,'Sekda'),(24,'KNPI DPD PATI'),(25,'KPUD');
 /*!40000 ALTER TABLE `tb_pengirim` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -268,7 +268,7 @@ CREATE TABLE `tb_suratmasuk` (
   KEY `id_ag` (`id_ag`),
   CONSTRAINT `tb_suratmasuk_ibfk_1` FOREIGN KEY (`id_ag`) REFERENCES `tb_agenda` (`id_ag`),
   CONSTRAINT `tb_suratmasuk_ibfk_2` FOREIGN KEY (`id_sifat`) REFERENCES `tb_sifat` (`id_sifat`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -277,7 +277,7 @@ CREATE TABLE `tb_suratmasuk` (
 
 LOCK TABLES `tb_suratmasuk` WRITE;
 /*!40000 ALTER TABLE `tb_suratmasuk` DISABLE KEYS */;
-INSERT INTO `tb_suratmasuk` VALUES (1,'2017-01-15','SP/XI/2017','2017-01-14','Undangan manten','Partai PDIP','09E02129.pdf','-',1,4,'DWN',1),(2,'2017-01-15','132/vi/2017','2017-01-14','Donor darah HUT PMII','PMII','jbptunikompp-gdl-nipiantiag-22185-3-unikom_n-i.pdf','-',1,6,'DWN',1),(3,'2017-01-15','132/vi/2017','2017-01-13','Halal bi halal','Partai PDIP','Surat-Edaran-PPDB.pdf','-',2,6,'SWN',1),(4,'2017-01-15','SK/I/2017','2017-01-07','Pernikahan lurah','Warga keboromo Tayu','SYARAT_PENDADARAN_(BARU_&_ULANG)_TI-SI-MI_Ganjil_2016-2017.docx','-',2,2,'SWN',1),(5,'2017-01-15','SK/I/2017','2017-01-15','Tahlilan','Warga Gabus','MODUL_LARAVEL_VERSI_4_2.docx','-',2,4,'SWN',1),(6,'2017-01-15','SP/XI1/2017','2017-01-15','Perayaan maulid nabi','Ponpes Mathaliul Falah','daftar_rencana_umum_pengadaan.pdf','-',2,3,'SWN',1),(7,'2017-01-16','XII/32/2017','2017-01-15','undangan','Partai PDIP','Sekretariat_DPRD.docx','-',2,3,'SWN',1),(8,'2017-01-21','005/309','2017-01-20','Upacara peringatan hari kesaktian pancasila tahun 2016','Sekda Pati','P_20161129_110705_DF.jpg','-',2,2,'SWN',1),(9,'2017-03-03','005/4914','2017-02-24','Undangan','Sekda','P_20161129_110617_DF.jpg','-',1,1,'DWN',1),(10,'2017-03-03','01/KNPI-PATI/09/2016','2016-09-09','Undangan Pelantikan','KNPI DPD PATI','P_20161129_110455_DF.jpg','-',1,1,'DWN',1);
+INSERT INTO `tb_suratmasuk` VALUES (1,'2017-01-15','SP/XI/2017','2017-01-14','Undangan manten','Partai PDIP','09E02129.pdf','-',1,4,'DWN',1),(2,'2017-01-15','132/vi/2017','2017-01-14','Donor darah HUT PMII','PMII','jbptunikompp-gdl-nipiantiag-22185-3-unikom_n-i.pdf','-',1,6,'DWN',1),(3,'2017-01-15','132/vi/2017','2017-01-13','Halal bi halal','Partai PDIP','Surat-Edaran-PPDB.pdf','-',2,6,'SWN',1),(4,'2017-01-15','SK/I/2017','2017-01-07','Pernikahan lurah','Warga keboromo Tayu','SYARAT_PENDADARAN_(BARU_&_ULANG)_TI-SI-MI_Ganjil_2016-2017.docx','-',2,2,'SWN',1),(5,'2017-01-15','SK/I/2017','2017-01-15','Tahlilan','Warga Gabus','MODUL_LARAVEL_VERSI_4_2.docx','-',2,4,'SWN',1),(6,'2017-01-15','SP/XI1/2017','2017-01-15','Perayaan maulid nabi','Ponpes Mathaliul Falah','daftar_rencana_umum_pengadaan.pdf','-',2,3,'SWN',1),(7,'2017-01-16','XII/32/2017','2017-01-15','undangan','Partai PDIP','Sekretariat_DPRD.docx','-',2,3,'SWN',1),(8,'2017-01-21','005/309','2017-01-20','Upacara peringatan hari kesaktian pancasila tahun 2016','Sekda Pati','P_20161129_110705_DF.jpg','-',2,2,'SWN',1),(9,'2017-03-03','005/4914','2017-02-24','Undangan','Sekda','P_20161129_110617_DF.jpg','-',1,1,'DWN',1),(10,'2017-03-03','01/KNPI-PATI/09/2016','2016-09-09','Undangan Pelantikan','KNPI DPD PATI','P_20161129_110455_DF.jpg','-',1,1,'DWN',1),(11,'2017-03-08','009/SP/2017','2017-03-04','Pengumuman Pemilu','KPUD','erd.docx','1',1,4,'DWN',1),(12,'2017-03-08','003/SN/2017','2017-03-06','Pilkada 2017','KPUD','16999128_1259010604179883_3119883251875259392_n.jpg','1',1,4,'DWN',1);
 /*!40000 ALTER TABLE `tb_suratmasuk` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -320,4 +320,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-05 22:45:53
+-- Dump completed on 2017-03-08 23:09:28

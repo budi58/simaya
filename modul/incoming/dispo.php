@@ -68,6 +68,16 @@
                             $dispo = 'Kabag Rapat dan Perundang-undangan';
                         }elseif($dispo == 'KPH'){
                             $dispo = 'Kabag Perlengkapan dan Humas';
+                        }elseif ($dispo == "KOMA"){
+                            $dispo = 'Ketua Komisi A';
+                        }elseif($dispo == "KOMB"){
+                            $dispo = 'Ketua Komisi B';
+                        }elseif($dispo == 'KOMC'){
+                            $dispo = 'Ketua Komisi C';
+                        }elseif($dispo == 'KOMD'){
+                            $dispo = 'Ketua Komisi D';
+                        }elseif ($dispo == 'SWN'){
+                            $dispo = 'Sekwan';
                         }else{
                             echo '';
                         }
@@ -99,7 +109,7 @@
                     </thead>
                     <tbody>
                         <td style="width: 40%;"><?php echo $row['lamp']; ?> <a href="files/incoming/<?php echo $row['file']; ?>" target="_blank" ><?php echo $row['file']; ?></a></td>
-                        <td><?php echo $status." ".$row['agenda']; ?></td>
+                        <td><?php echo $row['agenda']." ".$status; ?></td>
                     </tbody>
                     
                     </table>
