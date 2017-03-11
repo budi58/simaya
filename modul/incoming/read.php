@@ -1,4 +1,6 @@
+
 <?php
+
     if($_SESSION['uac'] == 'ADM') {
         include ('modul/incoming/read_admin.php');
     }elseif($_SESSION['uac'] == 'KSBG'){

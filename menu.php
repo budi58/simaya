@@ -543,9 +543,15 @@ if ($_SESSION['uac'] == 'ADM'){
         <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-            <form role="search" class="navbar-form-custom" action="search_results.html">
-                <div class="form-group">
-                    <input type="text" placeholder="" class="form-control" name="top-search" id="top-search">
+            <form role="search" class="navbar-form-custom" action="?p=search" method="post">
+                <div class="input-group">
+                    <input type="text" placeholder="Search.." class="form-control" name="search">
+                    <div class="input-group-btn">
+                        <button class="btn btn-sm btn-primary" type="submit" name="cari">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
                 </div>
             </form>
         </div>

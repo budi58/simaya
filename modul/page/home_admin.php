@@ -1,7 +1,6 @@
 
             <?php include 'box_content.php'; ?>
 
-
             <div class="mail-box-header">    
                 <h2>
                     Recent Surat Masuk
@@ -95,5 +94,8 @@
                 </tbody>
                 </table>
             </div>
-        </div>
+
+
+
+
         

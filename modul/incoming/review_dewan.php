@@ -104,7 +104,7 @@
                     </thead>
                     <tbody>     
                     
-                        <td style="width: 40%;"><?php echo $row['lamp']; ?> <a href="files/incoming/<?php echo $row['file']; ?>" target="_blank" ><?php echo $row['file']; ?></a></td>
+                        <td style="width: 40%;"><?php echo $row['lamp']; ?> <a href="files/incoming/<?php echo $row['file']; ?>" target="_blank" ><?php echo $row['file']; ?></a> <- klik untuk membuka file surat</td>
                         <td><?php echo $status." ".$row['agenda']; ?></td>
                     
                     </tbody>

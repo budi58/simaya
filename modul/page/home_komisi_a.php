@@ -2,7 +2,7 @@
             <?php include 'box_content.php'; ?>
 
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <div class="mail-box-header">    
                             <h2>
                                 Disposisi Masuk

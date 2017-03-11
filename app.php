@@ -158,6 +158,7 @@
 
             /* Init DataTables */
             var oTable = $('#dataTables-example').DataTable();
+            var oTable = $('#dataTables-example1').DataTable();
             
         </script>
 
