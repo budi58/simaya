@@ -31,6 +31,7 @@
                             </a>
                         </div>
                     </div>
+
                     <div class="ibox-content">
                     <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -46,12 +47,11 @@
                     </thead>
                     <tbody>
                     <?php
-                        $sql = "SELECT tb_suratkeluar.id_sk, tb_suratkeluar.nosk, tb_suratkeluar.tglsurat, tb_suratkeluar.pengirim, tb_suratkeluar.perihal, tb_user.bgn, tb_suratkeluar.uac, tb_suratkeluar.status 
+                        $sql = "SELECT tb_suratkeluar.id_sk, tb_suratkeluar.nosk, tb_suratkeluar.tglsurat, tb_suratkeluar.pengirim, tb_suratkeluar.perihal, tb_user.bgn, tb_suratkeluar.uac, tb_suratkeluar.status, tb_suratkeluar.id_thn
                             FROM tb_suratkeluar 
                             INNER JOIN tb_user ON (`tb_suratkeluar`.`id_us`=`tb_user`.`id_us`) 
-                            WHERE tb_suratkeluar.uac = 'ADM'
-                            ORDER BY tb_suratkeluar.id_sk DESC";
-
+                            WHERE tb_suratkeluar.uac = 'ADM' ORDER BY tb_suratkeluar.id_sk DESC";
+                            
                         $res = $conn->query($sql);
                         $no = 0;
                         foreach ($res as $row) {

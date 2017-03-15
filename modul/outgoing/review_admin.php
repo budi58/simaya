@@ -77,7 +77,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Berkas Surat</label>
                                     <div class="col-sm-6"><a href="files/outgoing/<?php echo $row['file']; ?>" target="_blank"><?php echo $row['file']; ?></a> <input type="file" name="file">
-                                    </div><i>* File max 1MB</i>
+                                    </div><i>* File max 1MB <br>* Type file (.doc/.docx/.pdf/.jpg/.png)</i>
                                 </div>
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
