@@ -1,19 +1,10 @@
 <?php
 
-    foreach([
-
-            /*PENGATURAN ZONA WAKTU*/
-            'waktu' => 'Asia/Jakarta',       
-            
-             /*koneksi ke database server*/
-            'host' => 'localhost',
-            'user' => 'root',
-            'pass' => 'root',
-            'db'   => 'simaya_db',
-
-        ] as $_keydata => $_valdata) define($_keydata, $_valdata);
-
-
+    define('waktu', 'Asia/Jakarta');
+    define('HOST', 'localhost');
+    define('USER', 'root');
+    define('PASS', 'root');
+    define('DB',   'simaya_db');    
 
     ini_set('display_errors', 0);
     error_reporting(E_ALL ^ (E_NOTICE|E_STRICT));    
@@ -23,9 +14,11 @@
     date_default_timezone_set(waktu);
     setlocale(LC_MONETARY, 'id');
 
-    $conn = new mysqli(host,user,pass,db);
+    $conn = new mysqli(HOST,USER,PASS);
 
     #CEK KONEKSI
-    if ($conn->connect_error) {
-        die("Koneksi Gagal : " . $conn->connect_error);
+    if ($conn->connect_error ) {
+        die("Connection failed !" . $conn->connect_error);
     } 
+
+    mysqli_select_db($conn, DB) or die ("Database not found !");
