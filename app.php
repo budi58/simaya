@@ -11,13 +11,19 @@
  * Template     INSPINIA+ Admin Theme.
  */
 
-    include ('fungsi.php');
+    //include ('fungsi.php');
+    require( dirname( __FILE__ ) . '/fungsi.php' );
+
     session_start();
 
-    if(empty($_SESSION['uac'])) {
+    if( empty($_SESSION['uac']) ) 
+    {
         header('location:login.php') ;
-    } else {
-        include ('core.php'); 
+    } 
+    else 
+    {
+        //include ('core.php');
+        require( dirname( __FILE__ ) . '/core.php' ); 
     }
 ?>
 
@@ -65,16 +71,20 @@
     <?php require_once ('menu.php'); ?>
     
     <?php
-        if(isset($_GET['p']) && strlen($_GET['p']) > 0) {
+        
+        if (isset($_GET['p']) && strlen($_GET['p']) > 0 ) 
+        {
             $p=str_replace(".","/",$_GET['p']).".php";
-        }else {
+        } else {
             $p="home.php";    
         }
-        if(file_exists("modul/".$p)){
+        if (file_exists("modul/".$p) ) 
+        {
             include("modul/".$p);    
-        }else {
+        } else {
             include("modul/home.php");   
-        }  
+        }
+        
     ?>
    
     </div>

@@ -1,5 +1,18 @@
 <?php
-	require_once ('core.php');
+
+/**
+ * siMAYA
+ * ------------------------------------------------------------------------
+ * @package     siMAYA
+ * @author      Luqman Hakim <luckman.heckem@gmail.com>
+ * @copyright   Copyright (c) 2016
+ * @link        github.com/luqmanhakim1
+ * ------------------------------------------------------------------------
+ * Template     INSPINIA+ Admin Theme.
+ */
+
+	require( dirname( __FILE__ ) . '/core.php' );
+	
 	$v_uname = $conn->real_escape_string($_POST['uname']);
 	$v_upsw	 = $conn->real_escape_string($_POST['upsw']);
 
@@ -7,7 +20,7 @@
 	$res = $conn->query($log);
 	$row = $res->fetch_assoc();
 
-	if ($res->num_rows > 0) {
+	if ($res->num_rows > 0 ) {
 		foreach ($row as $key => $value) {
 			# code...
 			$_SESSION[$key] = $value;
@@ -22,7 +35,7 @@
 
 			header('location:app.php');
 		}
-	}else{
+	} else {
 		header('location:login.php?act=error');
 	}
 ?>

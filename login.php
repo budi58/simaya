@@ -11,12 +11,14 @@
  * Template     INSPINIA+ Admin Theme.
  */
  
-    require ('core.php');
+    require( dirname( __FILE__ ) . '/core.php' );
+    
     session_start();
 
-    if($_SESSION['uac']) {
+    if($_SESSION['uac']) 
+    {
         header('location:app.php');
-    }else{
+    } else {
 ?>
 
 <!DOCTYPE html>
