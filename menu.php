@@ -1,5 +1,16 @@
 <?php
 
+/**
+ * siMAYA
+ * ------------------------------------------------------------------------
+ * @package     siMAYA
+ * @author      Luqman Hakim <luckman.heckem@gmail.com>
+ * @copyright   Copyright (c) 2016
+ * @link        github.com/luqmanhakim1
+ * ------------------------------------------------------------------------
+ * Template     INSPINIA+ Admin Theme.
+ */
+
 $sql      = mysqli_query($conn, "SELECT *FROM tb_suratmasuk WHERE id_ag = '1' AND status = '1' ");
 $JmlSMK   = mysqli_num_rows($sql);
 

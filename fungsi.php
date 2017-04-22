@@ -23,17 +23,17 @@ function DateIndo2($date){
     return($result);
 }
 
-$seminggu = array("Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu");
-$hari = date("w");
-$hari_ini = $seminggu[$hari];
+    $seminggu = array("Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu");
+    $hari = date("w");
+    $hari_ini = $seminggu[$hari];
 
-$tgl_sekarang = date("Ymd");
-$tgl_skrg     = date("d");
-$bln_sekarang = date("m");
-$thn_sekarang = date("Y");
-$jam_sekarang = date("H:i:s");
+    $tgl_sekarang = date("Ymd");
+    $tgl_skrg     = date("d");
+    $bln_sekarang = date("m");
+    $thn_sekarang = date("Y");
+    $jam_sekarang = date("H:i:s");
 
-$nama_bln= array(
+    $nama_bln= array(
        '01' => 'Januari',
        '02' => 'Pebruari',
        '03' => 'Maret',
@@ -47,4 +47,3 @@ $nama_bln= array(
        '11' => 'November',
        '12' => 'Desember'
     );
-?>
