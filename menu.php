@@ -542,10 +542,7 @@ if ($_SESSION['uac'] == 'ADM'){
         </nav>
 
 <?php 
-}else{
-?>
-
-<?php
+    } else {
     }
 ?>
 
